@@ -1,5 +1,12 @@
 import argparse
 
-parser = argparse.ArgumentParser(add_help = True)
+parser = argparse.ArgumentParser()
+parser.add_argument('-q', '--quiet',
+action ='store_true',
+dest = 'quiet',
+help = 'Suppress Output'
+)
 
-parser.parse_args()
+args = parser.parse_args()
+
+print('Quiet mode is %r.' % args.quiet)
