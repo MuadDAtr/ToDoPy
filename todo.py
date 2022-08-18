@@ -1,7 +1,13 @@
 import argparse
-parser = argparse.ArgumentParser()
-parser.add_argument("--verbose", help="increase output verbosity",
-                    action="store_true")
-args = parser.parse_args()
-if args.verbose:
-    print("verbosity turned on")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-a',
+                        help = 'Add new task'
+    )
+
+    args = parser.parse_args()
+
+    print('Add mode is %r.' % args.add)
+
