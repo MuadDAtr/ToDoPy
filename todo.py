@@ -15,5 +15,12 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    print('Add mode is %r.' % args.a)
+    print('Add mode is %r.', args)
+    if  args.a is not None:
+        print('Adding...')
 
+    if args.t is not None:
+        print('Switching...')
+    
+    if args.l is not None:
+        print('Printing...')
