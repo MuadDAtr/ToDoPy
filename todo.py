@@ -1,8 +1,10 @@
 import argparse
+import sqlite
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+
     parser.add_argument('--l', 
                         help = 'Showing pending tasks', 
                         action= 'store_true'
@@ -11,7 +13,11 @@ if __name__ == "__main__":
                         help = 'Add new task'
     )
     parser.add_argument('--t', 
-                        help = 'Tick the task (changing status)')
+                        help = 'Tick the task (changing status)'
+                        )
+    parser.add_argument('--i',
+                        help = 'installation'
+    )
 
     args = parser.parse_args()
 
