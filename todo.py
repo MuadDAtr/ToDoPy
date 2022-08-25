@@ -15,8 +15,9 @@ if __name__ == "__main__":
     parser.add_argument('--t', 
                         help = 'Tick the task (changing status)'
     )
-    parser.add_argument('--i',
-                        help = 'Installation. Clearing database!'
+    parser.add_argument('--install',
+                        help = 'Installation. Clearing database!',
+                        action = 'store_true'
     )
 
     args = parser.parse_args()
@@ -24,7 +25,7 @@ if __name__ == "__main__":
     con = sqlite3.connect('todo.db')
     cur = con.cursor()
 
-    if args.i is not None:
+    if args.install is not None:
         print('Installing...')
         cur.execute('CREATE TABLE todos(id INTEGER PRIMARY KEY AUTOINCREMENT, task TEXT, is_done BOOLEAN)')
         con.commit()
@@ -34,7 +35,7 @@ if __name__ == "__main__":
     if args.t is not None:
         print('Switching...')
     
-    if args.l is not None:
+    if args.l:
         print('Printing...')
 
    
