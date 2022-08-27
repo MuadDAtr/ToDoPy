@@ -45,8 +45,13 @@ if __name__ == "__main__":
             print('Task doesnt exist')
         elif is_done[0] == 1:
             print('switched to undone')
+            updated_isdone = 0
         elif is_done[0] == 0:
             print('switched to done')
+            updated_isdone = 1
+
+        cur.execute('UPDATE todos SET is_done=? WHERE id=?', (updated_isdone, args.tick))
+        con.commit()
 
     
     if args.list:
