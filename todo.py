@@ -38,8 +38,19 @@ if __name__ == "__main__":
 
     if args.tick is not None:
         print('Switching...')
+        query = cur.execute('SELECT is_done FROM todos WHERE id=?', (args.tick,))
+        is_done = query.fetchone()
+        print(is_done)
+        if is_done is None:
+            print('Task doesnt exist')
+        elif is_done[0] == 1:
+            print('switched to undone')
+        elif is_done[0] == 0:
+            print('switched to done')
+
     
     if args.list:
-        print('Printing...')
+        for t_id, task, is_done in cur.execute('SELECT id, task, is_done FROM todos'):
+            print(f'{t_id} \t {task} \t {is_done}')
 
    
